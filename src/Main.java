@@ -62,7 +62,7 @@ public class Main {
     // Task 4: Reverse sequence
     // Complexity: O(n)
     public static void Task4(int count) {
-        if (count == 0) return;
+        if (count <= 0) return;
         int number = scanner.nextInt();
         Task4(count - 1);
         System.out.print(number + " ");
