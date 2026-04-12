@@ -81,9 +81,12 @@ public class Main {
         int n = sc.nextInt();
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n; i++) stack.push(sc.nextInt());
+
         reverseStack(stack);
-        while (!stack.isEmpty()) {
-            System.out.print(stack.pop() + " ");
+
+        // Выводим элементы так, чтобы они соответствовали реверсу (снизу вверх)
+        for (int i = 0; i < stack.size(); i++) {
+            System.out.print(stack.get(i) + (i == stack.size() - 1 ? "" : " "));
         }
         System.out.println();
     }
@@ -127,15 +130,12 @@ public class Main {
         for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
         for (int i = n / 2 - 1; i >= 0; i--) minHeapify(arr, n, i);
         System.out.println("Array: " + Arrays.toString(arr));
-        int level = 0, nodes = 1, index = 0;
+        int index = 0, level = 0, nodes = 1;
         while (index < n) {
             System.out.print("Level " + level + ": ");
-            for (int i = 0; i < nodes && index < n; i++) {
-                System.out.print(arr[index++] + " ");
-            }
+            for (int i = 0; i < nodes && index < n; i++) System.out.print(arr[index++] + " ");
             System.out.println();
-            nodes *= 2;
-            level++;
+            nodes *= 2; level++;
         }
     }
 
